@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mad Libs Office Blockbuster</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .prompt {
+            margin-bottom: 40px;
+        }
+        .prompt h2 {
+            color: #333;
+        }
+        .prompt label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .prompt input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+        .prompt button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .prompt button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mad Libs Office Blockbuster</h1>
+    <p>Fill in the blanks with the specified parts of speech to create your own hilarious or dramatic office movie plots!</p>
+
+    <div class="prompt">
+        <h2>🎬 Action Movie: "Operation: Office Overdrive"</h2>
+        <label for="action-plural-noun">Plural Noun (Office hazards):</label>
+        <input type="text" id="action-plural-noun">
+        <label for="action-occupation">Occupation (Job title):</label>
+        <input type="text" id="action-occupation">
+        <label for="action-adjective1">Adjective (Describes an object):</label>
+        <input type="text" id="action-adjective1">
+        <label for="action-noun1">Noun (Office item):</label>
+        <input type="text" id="action-noun1">
+        <label for="action-name">Name (Hero’s name):</label>
+        <input type="text" id="action-name">
+        <label for="action-adjective2">Adjective (Describes the office):</label>
+        <input type="text" id="action-adjective2">
+        <label for="action-plural-noun2">Plural Noun (Office-related group):</label>
+        <input type="text" id="action-plural-noun2">
+        <label for="action-verb-ing">Verb ending in -ing (Office action):</label>
+        <input type="text" id="action-verb-ing">
+        <label for="action-adjective3">Adjective (Describes a person):</label>
+        <input type="text" id="action-adjective3">
+        <label for="action-place">Place (Remote location):</label>
+        <input type="text" id="action-place">
+        <label for="action-villain-name">Villainous Name (Evil boss name):</label>
+        <input type="text" id="action-villain-name">
+        <label for="action-noun2">Noun (Tall object):</label>
+        <input type="text" id="action-noun2">
+        <label for="action-event">Event (Office event):</label>
+        <input type="text" id="action-event">
+        <label for="action-abstract-noun">Abstract Noun (Concept):</label>
+        <input type="text" id="action-abstract-noun">
+        <button onclick="generateAction()">Generate Action Movie</button>
+        <div class="result" id="action-result"></div>
+    </div>
+
+    <div class="prompt">
+        <h2>😂 Comedy Movie: "Work From Home Woes"</h2>
+        <label for="comedy-name">Name (Protagonist’s name):</label>
+        <input type="text" id="comedy-name">
+        <label for="comedy-occupation">Occupation (Remote job):</label>
+        <input type="text" id="comedy-occupation">
+        <label for="comedy-plural-noun">Plural Noun (Home/office items):</label>
+        <input type="text" id="comedy-plural-noun">
+        <label for="comedy-adjective">Adjective (Describes an email):</label>
+        <input type="text" id="comedy-adjective">
+        <label for="comedy-verb-ing">Verb ending in -ing (Boss activity):</label>
+        <input type="text" id="comedy-verb-ing">
+        <label for="comedy-place">Place (Exotic or funny location):</label>
+        <input type="text" id="comedy-place">
+        <label for="comedy-plural-noun2">Plural Noun (Office supplies):</label>
+        <input type="text" id="comedy-plural-noun2">
+        <label for="comedy-event">Event (Work event):</label>
+        <input type="text" id="comedy-event">
+        <label for="comedy-number">Number (Any number):</label>
+        <input type="text" id="comedy-number">
+        <label for="comedy-animal">Animal (Pet or wild animal):</label>
+        <input type="text" id="comedy-animal">
+        <label for="comedy-noun">Noun (Memorable object):</label>
+        <input type="text" id="comedy-noun">
+        <label for="comedy-verb-ing2">Verb ending in -ing (Funny action):</label>
+        <input type="text" id="comedy-verb-ing2">
+        <button onclick="generateComedy()">Generate Comedy Movie</button>
+        <div class="result" id="comedy-result"></div>
+    </div>
+
+    <div class="prompt">
+        <h2>🎭 Drama Movie: "The Last Deadline"</h2>
+        <label for="drama-abstract-noun">Abstract Noun (Workplace vibe):</label>
+        <input type="text" id="drama-abstract-noun">
+        <label for="drama-emotion">Emotion (Feeling):</label>
+        <input type="text" id="drama-emotion">
+        <label for="drama-verb-ing">Verb ending in -ing (Office sound):</label>
+        <input type="text" id="drama-verb-ing">
+        <label for="drama-name">Name (Main character):</label>
+        <input type="text" id="drama-name">
+        <label for="drama-occupation">Occupation (Office role):</label>
+        <input type="text" id="drama-occupation">
+        <label for="drama-name2">Name (Rival’s name):</label>
+        <input type="text" id="drama-name2">
+        <label for="drama-noun">Noun (Important item):</label>
+        <input type="text" id="drama-noun">
+        <label for="drama-beverage">Beverage (Office drink):</label>
+        <input type="text" id="drama-beverage">
+        <label for="drama-place">Place (Remote work location):</label>
+        <input type="text" id="drama-place">
+        <label for="drama-abstract-noun2">Abstract Noun (Deep concept):</label>
+        <input type="text" id="drama-abstract-noun2">
+        <button onclick="generateDrama()">Generate Drama Movie</button>
+        <div class="result" id="drama-result"></div>
+    </div>
+
+    <div class="prompt">
+        <h2>🚀 Sci-Fi Movie: "The Office of Tomorrow"</h2>
+        <label for="scifi-noun">Noun (Futuristic office item):</label>
+        <input type="text" id="scifi-noun">
+        <label for="scifi-adjective">Adjective (Describes technology):</label>
+        <input type="text" id="scifi-adjective">
+        <label for="scifi-verb">Verb (Action in the office):</label>
+        <input type="text" id="scifi-verb">
+        <label for="scifi-name">Name (Protagonist’s name):</label>
+        <input type="text" id="scifi-name">
+        <label for="scifi-occupation">Occupation (Futuristic job title):</label>
+        <input type="text" id="scifi-occupation">
+        <label for="scifi-place">Place (Space location):</label>
+        <input type="text" id="scifi-place">
+        <label for="scifi-abstract-noun">Abstract Noun (Concept):</label>
+        <input type="text" id="scifi-abstract-noun">
+        <label for="scifi-plural-noun">Plural Noun (Alien species):</label>
+        <input type="text" id="scifi-plural-noun">
+        <label for="scifi-adjective2">Adjective (Describes an alien):</label>
+        <input type="text" id="scifi-adjective2">
+        <label for="scifi-event">Event (Galactic event):</label>
+        <input type="text" id="scifi-event">
+        <button onclick="generateSciFi()">Generate Sci-Fi Movie</button>
+        <div class="result" id="scifi-result"></div>
+    </div>
+
+    <script>
+        function generateAction() {
+            const pluralNoun = document.getElementById('action-plural-noun').value;
+            const occupation = document.getElementById('action-occupation').value;
+            const adjective1 = document.getElementById('action-adjective1').value;
+            const noun1 = document.getElementById('action-noun1').value;
+            const name = document.getElementById('action-name').value;
+            const adjective2 = document.getElementById('action-adjective2').value;
+            const pluralNoun2 = document.getElementById('action-plural-noun2').value;
+            const verbIng = document.getElementById('action-verb-ing').value;
+            const adjective3 = document.getElementById('action-adjective3').value;
+            const place = document.getElementById('action-place').value;
+            const villainName = document.getElementById('action-villain-name').value;
+            const noun2 = document.getElementById('action-noun2').value;
+            const event = document.getElementById('action-event').value;
+            const abstractNoun = document.getElementById('action-abstract-noun').value;
+
+            const result = `In a world where the office is under siege by a rogue team of ${pluralNoun}, only one ${occupation} can save the day. Armed with nothing but a ${adjective1} stapler and a ${noun1} full of coffee, ${name} must navigate the ${adjective2} cubicles and survive the ${pluralNoun2} of HR. With the clock ticking and the Wi-Fi ${verbIng}, our hero must team up with a ${adjective3} intern and a mysterious remote worker from ${place}. Together, they’ll face off against the evil CEO, ${villainName}, in a final showdown atop the ${noun2} tower. Will they make it to the ${event} in time, or will the office fall into ${abstractNoun}?`;
+
+            document.getElementById('action-result').innerText = result;
+        }
+
+        function generateComedy() {
+            const name = document.getElementById('comedy-name').value;
+            const occupation = document.getElementById('comedy-occupation').value;
+            const pluralNoun = document.getElementById('comedy-plural-noun').value;
+            const adjective = document.getElementById('comedy-adjective').value;
+            const verbIng = document.getElementById('comedy-verb-ing').value;
+            const place = document.getElementById('comedy-place').value;
+            const pluralNoun2 = document.getElementById('comedy-plural-noun2').value;
+            const event = document.getElementById('comedy-event').value;
+            const number = document.getElementById('comedy-number').value;
+            const animal = document.getElementById('comedy-animal').value;
+            const noun = document.getElementById('comedy-noun').value;
+            const verbIng2 = document.getElementById('comedy-verb-ing2').value;
+
+            const result = `Meet ${name}, a quirky ${occupation} who’s just trying to survive another day of Zoom calls, pajama pants, and ${pluralNoun}. But when their cat accidentally sends a ${adjective} email to the entire company, chaos ensues! With their boss ${verbIng} from a beach in ${place} and their coworkers arguing over the best brand of ${pluralNoun2}, it’s up to ${name} to fix everything before the big ${event}. Featuring a cast of ${number} eccentric colleagues, a surprise visit from a ${animal}, and a dramatic reenactment of the ${noun} incident of 2020, this workplace comedy will have you ${verbIng2} in your ergonomic chair.`;
+
+            document.getElementById('comedy-result').innerText = result;
+        }
+
+        function generateDrama() {
+            const abstractNoun = document.getElementById('drama-abstract-noun').value;
+            const emotion = document.getElementById('drama-emotion').value;
+            const verbIng = document.getElementById('drama-verb-ing').value;
+            const name = document.getElementById('drama-name').value;
+            const occupation = document.getElementById('drama-occupation').value;
+            const name2 = document.getElementById('drama-name2').value;
+            const noun = document.getElementById('drama-noun').value;
+            const beverage = document.getElementById('drama-beverage').value;
+            const place = document.getElementById('drama-place').value;
+            const abstractNoun2 = document.getElementById('drama-abstract-noun2').value;
+
+            const result = `The office was once a place of ${abstractNoun}, but now it’s filled with whispers of ${emotion} and the sound of keyboards ${verbIng}. ${name}, a once-celebrated ${occupation}, is on the verge of burnout. As the final deadline looms, tensions rise between ${name} and their longtime rival, ${name2}, over a missing ${noun}. Secrets are revealed in the break room, alliances are formed over ${beverage}, and the line between work and life begins to blur. With a promotion on the line and a mysterious message from a remote worker in ${place}, ${name} must confront their past, their inbox, and the meaning of ${abstractNoun2}.`;
+
+            document.getElementById('drama-result').innerText = result;
+        }
+
+        function generateSciFi() {
+            const noun = document.getElementById('scifi-noun').value;
+            const adjective = document.getElementById('scifi-adjective').value;
+            const verb = document.getElementById('scifi-verb').value;
+            const name = document.getElementById('scifi-name').value;
+            const occupation = document.getElementById('scifi-occupation').value;
+            const place = document.getElementById('scifi-place').value;
+            const abstractNoun = document.getElementById('scifi-abstract-noun').value;
+            const pluralNoun = document.getElementById('scifi-plural-noun').value;
+            const adjective2 = document.getElementById('scifi-adjective2').value;
+            const event = document.getElementById('scifi-event').value;
+
+            const result = `In the year 2050, the office has transformed into a ${noun} of ${adjective} technology. ${name}, a ${occupation}, must ${verb} through the challenges of working from ${place}. As they navigate the complexities of ${abstractNoun}, they encounter a group of ${pluralNoun} who have infiltrated the office. With the help of a ${adjective2} AI assistant, ${name} must prevent the ${event} from disrupting the entire galaxy.`;
+
+            document.getElementById('scifi-result').innerText = result;
+        }
+    </script>
+</body>
+</html>
